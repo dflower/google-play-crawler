@@ -25,12 +25,12 @@ In order to authenticate to Google Play, you also need to provide either your Go
 
 Edit crawler.py, add codes in the '__main__' function as following:
 
-getApps(api, <Category>, <SubCategory>, <Number>, <Offset>)
+getApps(api, Category, SubCategory, Number, Offset)
 
-<Category>: the category you want to download apps from, such as 'GAME', 'BUSINESS', etc. you can get all categories using categories.py
-<SubCategory>:  the subcategory you want to download apps from, you can get subcategories using list.py
-<Number>: the number of apps you want to download, maximum 100
-<Offset>: the offset of the first app you want to download
+Category: the category you want to download apps from, such as 'GAME', 'BUSINESS', etc. you can get all categories using categories.py
+SubCategory:  the subcategory you want to download apps from, you can get subcategories using list.py
+Number: the number of apps you want to download, maximum 100
+Offset: the offset of the first app you want to download
 
 example:
 getApps(api,'GAME','apps_topselling_free','100',None)

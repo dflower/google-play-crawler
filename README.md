@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # thanks to Google Play Unofficial Python API
 
 An unofficial Python API that let you search, browse and download Android apps from Google Play (formerly Android Market).
@@ -146,71 +147,5 @@ Downloading an app is really easy, just provide its package name. I only tested 
     $ file com.google.android.gm.apk
     com.google.android.gm.apk: Zip archive data, at least v2.0 to extract
 
-### Interactive shell
-An interactive shell can be started using the `apishell.py` script. It initializes the `api` object and logs you in.
 
-    $ python apishell.py
-
-    Google Play Unofficial API Interactive Shell
-    Successfully logged in using your Google account. The variable 'api' holds the API object.
-    Feel free to use help(api).
-
-    >>> print api.__doc__
-    Google Play Unofficial API Class
-      Usual APIs methods are login(), search(), details(), download(), browse() and list().
-      toStr() can be used to pretty print the result (protobuf object) of the previous methods.
-      toDict() converts the result into a dict, for easier introspection.
-
-    >>> res = api.search("angry birds")
-    >>> for i in res.doc[0].child:
-    ...   print i.title.encode('utf8')
-    ...
-    Angry Birds
-    Angry Birds Seasons
-    Angry Birds Space
-    Angry Birds Rio
-    Angry Birds Space Premium
-    Angry Birds - AngryBirdsBackup
-    Angry Aviary LiteÔÿà Angry Birds
-    [...]
-
-All results returned by methods such as `search()`, `details()`, ..., are Protobuf objects. You can use `toStr` and `toDict` method from `GooglePlayAPI` to pretty-print them and make introspection easier if you're not familiar with Protobuf.
-
-    >>> s = api.browse()
-    >>> s
-    <googleplay_pb2.BrowseResponse object at 0x025DBF48>
-    >>> d = api.toDict(s)
-    >>> d.keys()
-    ['promoUrl', 'category', 'contentsUrl']
-    >>> from pprint import pprint
-    >>> pprint(d['category'])
-    [{'dataUrl': u'browse?c=3&cat=GAME', 'name': u'Jeux'},
-     {'dataUrl': u'browse?c=3&cat=NEWS_AND_MAGAZINES',
-    [...]
-
-### Using the API as a module in another project
-
-You only need `googleplay.py` and `googleplay_pb2.py`. All other scripts are just front-ends.
-
-    >>> from googleplay import GooglePlayAPI
-    >>> help(GooglePlayAPI)
-
-What else?
-
-### To be continued
-
-Feel free to extend the API, add command-line options to scripts, fork the project, and port it to any language.
-You can generate Protobuf stubs from `googleplay.proto` file with Google's `protoc`:
-
-    $ protoc -h
-    Usage: protoc [OPTION] PROTO_FILES
-    Parse PROTO_FILES and generate output based on the options given:
-    [...]
-      --cpp_out=OUT_DIR           Generate C++ header and source.
-      --java_out=OUT_DIR          Generate Java source file.
-      --python_out=OUT_DIR        Generate Python source file.
-
-## License
-
-This project is released under the BSD license.
 
